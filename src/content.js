@@ -19,7 +19,7 @@ const content = {
     {
       photo: '/photos/1.jpeg',
       caption:
-        'Haaa Li aveeee, aem naa hoyyy Rekhaa🫠',
+        'Haaa Li aveeee. Areyy Rekhaaaa, aem naa hoyyyy!🫠',
     },
     {
       photo: '/photos/2.jpeg',
