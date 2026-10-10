@@ -531,17 +531,17 @@ body {
   padding: 15px; /* larger tap target for iOS */
   cursor: pointer;
   opacity: 0.8;
-  will-change: transform, filter, opacity;
+  will-change: transform, opacity;
   transform: translateZ(0);
   animation: secret-pulse 1.5s ease-in-out infinite;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  filter: drop-shadow(0 0 8px rgba(255, 105, 135, 0.8));
+  filter: drop-shadow(0 0 12px rgba(255, 105, 135, 0.8));
 }
 
 @keyframes secret-pulse {
-  0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 8px rgba(255,105,135,0.5)); }
-  50%      { opacity: 1; transform: scale(1.25) rotate(-5deg); filter: drop-shadow(0 0 20px rgba(255,105,135,1)); }
+  0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+  50%      { opacity: 1; transform: scale(1.25) rotate(-5deg); }
 }
 
 /* ── Heart decorations (doodle accents) ────────────────────── */
