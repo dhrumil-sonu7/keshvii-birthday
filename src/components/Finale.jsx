@@ -61,6 +61,25 @@ function HeartBurst({ x, y }) {
   );
 }
 
+/** Word-by-word staggered reveal for the secret message */
+function AnimatedSecretMessage({ text }) {
+  const words = text.split(/(\s+)/);
+  return (
+    <p className="secret-text">
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: i * 0.04 + 0.2 }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </p>
+  );
+}
+
 function Finale() {
   const [showSecret, setShowSecret] = useState(false);
   const [burst, setBurst] = useState(null);
@@ -116,15 +135,28 @@ function Finale() {
           {content.closingLine}
         </motion.p>
 
-        {/* Secret heart – slightly different from ambient ones */}
-        <motion.span
-          className="secret-heart"
-          onClick={handleSecretTap}
-          whileTap={{ scale: 1.5 }}
-          title="💗"
+        {/* Secret heart with arrow */}
+        <motion.div
+          className="secret-trigger"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: content.finaleTitle.length * 0.06 + 1.2, duration: 1 }}
         >
-          💝
-        </motion.span>
+          <div className="secret-arrow">
+            <span>Tap me!</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ marginLeft: 4 }}>
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <motion.span
+            className="secret-heart"
+            onClick={handleSecretTap}
+            whileTap={{ scale: 1.5 }}
+            title="💗"
+          >
+            💝
+          </motion.span>
+        </motion.div>
       </motion.div>
 
       {/* Heart burst animation */}
@@ -156,7 +188,7 @@ function Finale() {
               >
                 ✕
               </button>
-              <p className="secret-text">{content.secretMessage}</p>
+              <AnimatedSecretMessage text={content.secretMessage} />
             </motion.div>
           </motion.div>
         )}
