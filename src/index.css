@@ -464,6 +464,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 .secret-note {
@@ -477,6 +479,8 @@ body {
   overflow-y: auto;
   box-shadow: 0 8px 40px rgba(255,105,135,0.3);
   -webkit-overflow-scrolling: touch;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .secret-text {

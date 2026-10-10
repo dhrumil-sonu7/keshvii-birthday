@@ -43,7 +43,12 @@ function HeartBurst({ x, y }) {
         return (
           <motion.span
             key={i}
-            style={{ position: 'absolute', fontSize: 14 }}
+            style={{ 
+              position: 'absolute', 
+              fontSize: 14,
+              willChange: 'transform, opacity',
+              transform: 'translateZ(0)'
+            }}
             initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
             animate={{
               x: Math.cos(angle) * dist,
