@@ -411,23 +411,28 @@ body {
 
 .finale-badge {
   position: relative;
-  display: inline-block;
-  margin-top: 20px;
-  padding: 8px 36px;
-  background: var(--card-cream);
-  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 6px 28px;
+  background: var(--card-blush);
+  border: 2px dashed var(--card-cream);
+  border-radius: 35px 40px 30px 45px;
   font-family: var(--font-caption);
-  font-weight: 600;
-  font-size: 1.8rem;
-  color: #4a3040;
-  box-shadow: 
-    0 8px 24px rgba(255, 105, 135, 0.15),
-    0 3px 10px rgba(0, 0, 0, 0.12),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: #853655; /* deep rose/plum */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   will-change: transform;
   transform: translateZ(0);
   overflow: hidden;
+  animation: floating-sticker 4s ease-in-out infinite;
+}
+
+@keyframes floating-sticker {
+  0%, 100% { transform: translateY(0px) rotate(8deg); }
+  50% { transform: translateY(-5px) rotate(8deg); }
 }
 
 /* Paper grain overlay for sticker */
@@ -435,10 +440,9 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
-  border-radius: 40px;
 }
 
 .closing-line {

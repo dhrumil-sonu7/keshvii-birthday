@@ -110,16 +110,20 @@ function Finale() {
 
         {/* Happy 25th badge */}
         <motion.div
-          className="finale-badge"
-          initial={{ scale: 0, opacity: 0, rotate: -3 }}
-          animate={{ scale: 1, opacity: 1, rotate: -3 }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{
             delay: content.finaleTitle.length * 0.06 + 0.3,
             type: 'spring',
-            stiffness: 200,
+            stiffness: 220,
+            damping: 15
           }}
         >
-          <span style={{ position: 'relative', zIndex: 2 }}>🎂 Happy {content.age}th 🎂</span>
+          <div className="finale-badge">
+            <span style={{ position: 'relative', zIndex: 2 }}>Happy {content.age}th</span>
+            <span style={{ position: 'relative', zIndex: 2, fontSize: '1rem', marginLeft: '4px' }}>✨</span>
+            <span style={{ position: 'relative', zIndex: 2, fontSize: '0.85rem', marginLeft: '2px' }}>💖</span>
+          </div>
         </motion.div>
 
         {/* Closing line */}
